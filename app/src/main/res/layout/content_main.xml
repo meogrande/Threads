@@ -12,8 +12,22 @@
     tools:context="meomobile.it.threads.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/imageViewBici"
+        android:src="@drawable/bici"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="60dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:text="Premi nel pulsante in basso per attivare tutti i thread e guarda nella console l&apos;esecuzione"
+        android:id="@+id/textViewConsole"
+        android:layout_below="@+id/imageViewBici"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

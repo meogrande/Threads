@@ -1,5 +1,7 @@
 package meomobile.it.threads.thread;
 
+import meomobile.it.threads.util.TextPrinter;
+
 /**
  * Created by fabio on 18/01/2016.
  */

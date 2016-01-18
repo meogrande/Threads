@@ -8,11 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import meomobile.it.threads.thread.Campana;
 import meomobile.it.threads.thread.ContaNani1;
 import meomobile.it.threads.thread.ContaNani2;
 import meomobile.it.threads.thread.Racchetta;
+import meomobile.it.threads.util.TextPrinter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,15 +27,40 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Aggiungo un'azione sul pulsante di sopra
+        FloatingActionButton buttonbici = (FloatingActionButton) findViewById(R.id.buttonbici);
+        buttonbici.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                    // Muovo il ciclista
+                  ImageView img_animation = (ImageView) findViewById(R.id.imageViewBici);
+
+                  TranslateAnimation animation = new TranslateAnimation(0.0f, 400.0f,
+                          0.0f, 0.0f);          //  new TranslateAnimation(xFrom,xTo, yFrom,yTo)
+                  animation.setDuration(5000);  // animation duration
+                  animation.setRepeatCount(5);  // animation repeat count
+                  animation.setRepeatMode(2);   // repeat animation (left to right, right to left )
+                  //animation.setFillAfter(true);
+
+                  img_animation.startAnimation(animation);  // start animation
+
+              }
+          }
+        );
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                // Setto la text su cui stampare
+                TextView tv = (TextView) findViewById(R.id.textViewConsole);
+                TextPrinter.setTextView(tv);
+
                 // Avvio il thread settenani
                 ContaNani1 cn = new ContaNani1();
                 cn.start();
-                System.out.println(Thread.currentThread().getName());
+                System.out.println("Il nome del primo thread è " + Thread.currentThread().getName());
 
                 // Avvio il thread settenani 2
                 Thread thr1 = new ContaNani2("fabio");
@@ -41,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
                     Thread.sleep(2000);                 // Attendo due secondi tra un programmino e l'altro
-                } catch(InterruptedException ex) {
+                } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 }
 
@@ -55,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 // Comincia il ping pong
                 try {
                     Thread.sleep(2000);                 // Attendo due secondi tra un programmino e l'altro
-                } catch(InterruptedException ex) {
+                } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 }
                 // Ping pong

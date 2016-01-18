@@ -1,0 +1,11 @@
+package meomobile.it.threads.thread;
+
+/**
+ * Created by fabio on 18/01/2016.
+ */
+public class CiclistaInGara implements Runnable {
+    @Override
+    public void run() {
+
+    }
+}
