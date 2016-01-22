@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 // Avvio il thread settenani
                 ContaNani1 cn = new ContaNani1();
                 cn.start();
-                System.out.println("Il nome del primo thread è " + Thread.currentThread().getName());
+                TextPrinter.println("Il nome del primo thread è " + Thread.currentThread().getName());
 
                 // Avvio il thread settenani 2
                 Thread thr1 = new ContaNani2("fabio");
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     Thread.currentThread().interrupt();
                 }
                 // Ping pong
-                System.out.println("Comincia il ping pong");
+                TextPrinter.println("Comincia il ping pong");
                 Thread thr5 = new Thread(new Racchetta("ping"));
                 thr5.start();
                 // secondo giocatore

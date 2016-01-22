@@ -13,21 +13,31 @@
     tools:showIn="@layout/activity_main">
 
     <ImageView
+        android:id="@+id/imageViewBici"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageViewBici"
-        android:src="@drawable/bici"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="60dp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/bici" />
 
-    <TextView
+    <ScrollView android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:text="Premi nel pulsante in basso per attivare tutti i thread e guarda nella console l&apos;esecuzione"
-        android:id="@+id/textViewConsole"
-        android:layout_below="@+id/imageViewBici"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageViewBici"
+        >
+
+        <TextView
+            android:id="@+id/textViewConsole"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:scrollbars="vertical"
+            android:text="Premi nel pulsante in basso per attivare tutti i thread e leggi qui che succede" />
+
+    </ScrollView>
 </RelativeLayout>

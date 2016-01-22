@@ -13,7 +13,7 @@ public class Racchetta implements Runnable {
     @Override
     public void run() {
         while (true){
-            System.out.println(pallina);
+            TextPrinter.println(pallina);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

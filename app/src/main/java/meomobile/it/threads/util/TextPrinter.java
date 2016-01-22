@@ -10,9 +10,15 @@ import meomobile.it.threads.R;
 public class TextPrinter {
     static String text = new String();
     static TextView tv;
+
     public static void println(String newText) {
         text += newText + "\n";
-        tv.setText(text);
+
+        tv.post(new Runnable() {
+            public void run() {
+                tv.setText(text);
+            }
+        });
     }
 
     public static void setTextView(TextView newTv) {
